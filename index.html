@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Preloaded CSS</title>
+    <style>
+        /* Reset default margin and padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Center the preloader */
+        .container {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff; /* White background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #833AB4; /* Initial color (Purple) */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite, changeColor 5s linear infinite; /* Add changeColor animation */
+            position: relative; /* Adjust the position of the spinner */
+            top: 0; /* Move the spinner up */
+            left: 0; /* Move the spinner left */
+        }
+
+        .spinner img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes changeColor {
+            0% { border-top-color: #833AB4; } /* Purple */
+            50% { border-top-color: #F56040; } /* Pink */
+            100% { border-top-color: #833AB4; } /* Back to Purple */
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="container">
+        <div class="spinner">
+            <img src="cat.gif" alt="Loading...">
+        </div>
+    </div>
+
+    <!-- JavaScript to hide the preloader -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var preloader = document.getElementById('preloader');
+            preloader.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
